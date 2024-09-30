@@ -19,3 +19,6 @@
 "alert_check_connection"                       = "Please check your connection and try again.";
 "alert_try_again"                              = "Try again";
 "alert_close_app"                              = "Close APP";
+
+//MARK: - TextField
+"text_field_placeholder" = "City";

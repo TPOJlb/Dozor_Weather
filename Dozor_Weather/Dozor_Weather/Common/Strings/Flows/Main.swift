@@ -10,7 +10,7 @@ import Foundation
 extension String {
     struct Main {
         private init() {}
-        //MARK: WeatherDetails
+        //MARK: - WeatherDetails
         struct WeatherDetails {
             private init() {}
             static let wind = "weather_details_wind".localized()

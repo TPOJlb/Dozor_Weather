@@ -99,11 +99,14 @@ class MainCollectionCell: UICollectionViewCell, Reusable {
 //MARK: - HandleUI
 extension MainCollectionCell {
     private func handleUI() {
-        guard let model else { return }
+        guard let model,
+              let main = model.main,
+              let weather = model.weather,
+              let firstItemWeather = weather.first else { return }
         
-        let temperature = model.main!.temp!.description.components(separatedBy: ".").first
-        temperatureLabel.text = temperature! + "°"
-        imageView.image = model.weather?[0]?.icon?.image
+        let temperature = main.temp?.toTemperatureString()
+        temperatureLabel.text = temperature
+        imageView.image = firstItemWeather?.icon?.image
         timeLabel.text = model.dt_txt?.utcToLocal(dateFormat: "HH:mm")
     }
 }

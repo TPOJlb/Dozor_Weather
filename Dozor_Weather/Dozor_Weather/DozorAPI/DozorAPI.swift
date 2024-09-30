@@ -10,4 +10,5 @@ import Foundation
 public final class DozorAPI: NSObject {
     public static let weatherManager    = WeatherManager()
     public static let locationManager   = LocationManager()
+    public static let citiesManager     = CitiesManager()
 }

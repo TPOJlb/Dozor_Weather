@@ -24,6 +24,20 @@ internal class NetworkHelper: NSObject {
         }
     }
     
+    func get<T: Decodable>(apiRoute: URL, params: [String: Any]? = nil, headers: [String: String] = [:], success: @escaping (T) -> Void, failure: @escaping (Error) -> Void) {
+        let httpHeaders = HTTPHeaders(headers)
+        
+        APIManager.manager.request(apiRoute, method: .get, parameters: params, headers: httpHeaders).validate().responseDecodable(of: T.self, decoder: JSONDecoder()) { response in
+            switch response.result {
+            case .success(let model):
+                success(model)
+            case .failure(let error):
+                let finalError = self.handleAFError(error: error)
+                failure(finalError)
+            }
+        }
+    }
+    
     func post<T: Decodable>(apiRoute: APIConstants.APIRoutes, params: [String: Any]? = nil, headers: [String: String] = [:], success: @escaping (T) -> Void, failure: @escaping (Error) -> Void) {
         let httpHeaders = HTTPHeaders(headers)
         

@@ -17,6 +17,8 @@ class MainController: UIViewController {
         }
     }
     
+    var cities: CountryModel?
+    
     var sortedList: [[List]] = [] {
         didSet {
             setScrollViewHeight()
@@ -41,12 +43,18 @@ class MainController: UIViewController {
     }
 
     private func initViewController() {
+        DispatchQueue.global(qos: .utility).async {
+            self.loadCities()
+        }
         getLocation()
         addTargets()
         registerCollectionView()
         registerTableView()
     }
-    
+}
+
+//MARK: - Helpers
+extension MainController {
     private func addTargets() {
         self.mainView.contentView.cityButton.addTarget(self, action: #selector(changeCity), for: .touchUpInside)
     }
@@ -62,10 +70,7 @@ class MainController: UIViewController {
         mainView.contentView.tableView.dataSource = self
         mainView.contentView.tableView.registerReusableCell(MainTableCell.self)
     }
-}
-
-//MARK: Helpers
-extension MainController {
+    
     private func sortArray() {
         guard let weather else {
             showAlertWithoutConnections()
@@ -113,7 +118,7 @@ extension MainController {
     }
 }
 
-//MARK: UpdateUI
+//MARK: - UpdateUI
 extension MainController {
     private func setScrollViewHeight() {
         mainView.contentView.tableViewNumberItems = CGFloat(sortedList.count)
@@ -137,11 +142,32 @@ extension MainController {
 //MARK: - Targets
 extension MainController {
     @objc private func changeCity() {
-        //TODO: - Go to next screen, change city!
+        openChooseCityScreen()
     }
 }
 
-//MARK: Network
+//MARK: - Navigation
+extension MainController {
+    private func openChooseCityScreen() {
+        let vc = ChooseCityController()
+        vc.cites = cities
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+//MARK: - ChooseCityP
+extension MainController: ChooseCityP {
+    func selectCity(city: CityModel?) {
+        guard let latitude = (city?.lat as? NSString)?.doubleValue,
+              let longtitude = (city?.lng as? NSString)?.doubleValue else { ProgressHelper.hide()
+            return
+        }
+        loadWeather(latitude: latitude, longitude: longtitude)
+    }
+}
+
+//MARK: - Network
 extension MainController {
     private func getLocation() {
         ProgressHelper.show()
@@ -166,6 +192,14 @@ extension MainController {
             self.weather = res
             self.saveToDataBase(model: res)
             ProgressHelper.hide()
+        } failure: { error in
+            print(error)
+        }
+    }
+    
+    private func loadCities() {
+        DozorAPI.citiesManager.getCities { res in
+            self.cities = res
         } failure: { error in
             print(error)
         }

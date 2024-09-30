@@ -79,7 +79,7 @@ class WeatherDetailsView: UIView {
     }
 }
 
-//MARK: HandleUI
+//MARK: - HandleUI
 extension WeatherDetailsView {
     private func handleUI() {
         guard let model else { return }

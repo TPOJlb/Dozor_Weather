@@ -257,7 +257,7 @@ class MainContentView: UIView {
     }
 }
 
-//MARK: HandleUI
+//MARK: - HandleUI
 extension MainContentView {
     private func handleUI() {
         guard let weatherModel,
@@ -296,7 +296,7 @@ extension MainContentView {
     }
 }
 
-//MARK: Helpers
+//MARK: - Helpers
 extension MainContentView {
     private func getStyleGradient(iconType: IconsModel?) -> GradientStylesModel? {
         guard let iconType else { return nil }

@@ -112,7 +112,6 @@ extension MainTableCell {
         descriptionLabel.text = description?.capitalized
         temperatureDayLabel.text = temperature.max?.toTemperatureString()
         temperatureNightLabel.text = temperature.min?.toTemperatureString()
-        
     }
 }
 
