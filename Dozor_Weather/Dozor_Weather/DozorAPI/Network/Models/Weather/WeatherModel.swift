@@ -8,70 +8,70 @@
 import Foundation
 
 public struct WeatherModel: Codable {
-    public var cod: String?
-    public var message: Int?
-    public var cnt: Int?
-    var list: [List?]
-    let city: City?
+    var cod: String?
+    var message: Int?
+    var cnt: Int?
+    var list: [List?]?
+    var city: City?
 }
 
 public struct List: Codable {
-    let dt: Int?
-    let main: Main?
-    var weather: [Weather?]
-    let clouds: Clouds?
-    let wind: Wind?
-    let visibility: Int?
-    let pop: Double?
-    let sys: Sys?
-    let dt_txt: String?
+    var dt: Int?
+    var main: Main?
+    var weather: [Weather?]?
+    var clouds: Clouds?
+    var wind: Wind?
+    var visibility: Int?
+    var pop: Double?
+    var sys: Sys?
+    var dt_txt: String?
 }
 
 public struct City: Codable {
-    let id: Int?
-    let name: String?
-    let coord: Cord?
-    let country: String?
-    let population: Int?
-    let timezone: Int?
-    let sunrise: Int?
-    let sunset: Int?
+    var id: Int?
+    var name: String?
+    var coord: Cord?
+    var country: String?
+    var population: Int?
+    var timezone: Int?
+    var sunrise: Int?
+    var sunset: Int?
 }
 
 public struct Cord: Codable {
-    let lat: Double?
-    let lon: Double?
+    var lat: Double?
+    var lon: Double?
 }
 
 public struct Main: Codable {
-    let temp: Double?
-    let feels_like: Double?
-    let temp_min: Double?
-    let temp_max: Double?
-    let pressure: Int?
-    let sea_level: Int?
-    let grnd_level: Int?
-    let humidity: Int?
-    let temp_kf: Double?
+    var temp: Double?
+    var feels_like: Double?
+    var temp_min: Double?
+    var temp_max: Double?
+    var pressure: Int?
+    var sea_level: Int?
+    var grnd_level: Int?
+    var humidity: Int?
+    var temp_kf: Double?
 }
 
 public struct Weather: Codable {
-    let id: Int?
-    let main: String?
-    let description: String?
-    var icon: String?
+    var id: Int?
+    var main: String?
+    var description: String?
+    var icon: IconsModel?
 }
 
 public struct Clouds: Codable {
-    let all: Int?
+    var all: Int?
 }
 
 public struct Wind: Codable {
-    let speed: Double?
-    let deg: Int?
-    let gust: Double?
+    var speed: Double?
+    var deg: Int?
+    var gust: Double?
 }
 
 public struct Sys: Codable {
-    let pod: String?
+    var pod: String?
 }

@@ -10,17 +10,17 @@ import SnapKit
 
 class MainView: UIView {
     
-    var location: LocationModel? {
-        didSet {
-            cityLabel.text = location?.city
-        }
-    }
+    let scrollView: UIScrollView = {
+        let obj = UIScrollView()
+        obj.showsVerticalScrollIndicator = false
+        obj.showsHorizontalScrollIndicator = false
+        obj.bounces = true
+        obj.contentInsetAdjustmentBehavior = .never
+        return obj
+    }()
     
-    let cityLabel: UILabel = {
-        let obj = UILabel()
-        obj.textColor = .colorText
-        obj.textAlignment = .center
-        obj.font = .theme(.medium, 24)
+    let contentView: MainContentView = {
+        let obj = MainContentView()
         return obj
     }()
     
@@ -36,11 +36,18 @@ class MainView: UIView {
     private func setup() {
         backgroundColor = .colorBackground
         
-        addSubview(cityLabel)
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
-        cityLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10.sizeH)
-            make.leading.trailing.equalToSuperview().inset(40.sizeW)
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
 }

@@ -21,7 +21,7 @@ internal class WeatherService {
             "lon":      longitude,
             "appid":    Constants.APIKey,
             "units":    "metric",
-            "lang":     "ua"
+            "lang":     "en"
         ]
         api.get(apiRoute: .fiveDays, params: params, success: { (model: WeatherModel) in
             success(model)

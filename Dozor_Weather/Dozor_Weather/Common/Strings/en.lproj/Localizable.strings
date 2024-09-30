@@ -6,6 +6,16 @@
   
 */
 
-//MARK: - Login
-//"login_sign_in"                     = "Ввійти";
-//"login_sign_up"                     = "Зареєструватися";
+//MARK: - WeatherDetails
+"weather_details_wind"                         = "Wind";
+"weather_details_humidity"                     = "Humidity";
+"weather_details_chance_of_rain"               = "Chance of rain";
+"weather_details_temp_max"                     = "Max";
+"weather_details_temp_min"                     = "Min";
+"weather_details_pressure"                     = "Pressure";
+
+//MARK: - Alert
+"alert_no_connection"                          = "No connection";
+"alert_check_connection"                       = "Please check your connection and try again.";
+"alert_try_again"                              = "Try again";
+"alert_close_app"                              = "Close APP";
