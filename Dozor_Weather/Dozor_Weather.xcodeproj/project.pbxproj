@@ -53,7 +53,6 @@
 		B40907B82CA9F3D30075B099 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907B72CA9F3D30075B099 /* DatabaseManager.swift */; };
 		B40907BD2CA9F68F0075B099 /* WeatherDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907BC2CA9F68F0075B099 /* WeatherDBManager.swift */; };
 		B40907BF2CA9F7640075B099 /* WeatherDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907BE2CA9F7640075B099 /* WeatherDBModel.swift */; };
-		B40907CD2CAA00E90075B099 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B40907CC2CAA00E90075B099 /* RealmSwift */; };
 		B40907CF2CAA25860075B099 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907CE2CAA25860075B099 /* Alert.swift */; };
 		B40907DD2CAA4A810075B099 /* CitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907DC2CAA4A810075B099 /* CitiesModel.swift */; };
 		B40907E02CAA4B230075B099 /* CitiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907DF2CAA4B230075B099 /* CitiesService.swift */; };
@@ -63,6 +62,7 @@
 		B40907EA2CAA61FE0075B099 /* ChooseCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907E92CAA61FE0075B099 /* ChooseCityView.swift */; };
 		B40907EC2CAA64C20075B099 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907EB2CAA64C20075B099 /* TextField.swift */; };
 		B40907EF2CAA656C0075B099 /* ChooseCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40907EE2CAA656C0075B099 /* ChooseCityCell.swift */; };
+		B4B5B7692CAA7E330071BA69 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B4B5B7682CAA7E330071BA69 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40907CD2CAA00E90075B099 /* RealmSwift in Frameworks */,
+				B4B5B7692CAA7E330071BA69 /* RealmSwift in Frameworks */,
 				B40907592CA6FBAE0075B099 /* SnapKit in Frameworks */,
 				B409075C2CA6FC020075B099 /* Alamofire in Frameworks */,
 			);
@@ -505,7 +505,7 @@
 			packageProductDependencies = (
 				B40907582CA6FBAE0075B099 /* SnapKit */,
 				B409075B2CA6FC020075B099 /* Alamofire */,
-				B40907CC2CAA00E90075B099 /* RealmSwift */,
+				B4B5B7682CAA7E330071BA69 /* RealmSwift */,
 			);
 			productName = Dozor_Weather;
 			productReference = B40907192CA6F0970075B099 /* Dozor_Weather.app */;
@@ -538,7 +538,7 @@
 			packageReferences = (
 				B40907572CA6FBAE0075B099 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B409075A2CA6FC020075B099 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				B40907CB2CAA00E90075B099 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B4B5B7672CAA7E330071BA69 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = B409071A2CA6F0970075B099 /* Products */;
 			projectDirPath = "";
@@ -686,7 +686,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -743,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -863,12 +863,12 @@
 				minimumVersion = 5.9.1;
 			};
 		};
-		B40907CB2CAA00E90075B099 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		B4B5B7672CAA7E330071BA69 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMinorVersion;
+				minimumVersion = 10.33.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -884,9 +884,9 @@
 			package = B409075A2CA6FC020075B099 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		B40907CC2CAA00E90075B099 /* RealmSwift */ = {
+		B4B5B7682CAA7E330071BA69 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B40907CB2CAA00E90075B099 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = B4B5B7672CAA7E330071BA69 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

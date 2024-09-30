@@ -40,7 +40,7 @@ class MainCollectionCell: UICollectionViewCell, Reusable {
     
     let timeLabel: UILabel = {
         let obj = UILabel()
-        obj.font = .theme(.bold, 16)
+        obj.font = .theme(.bold, 15)
         obj.textAlignment = .center
         obj.textColor = .color7DA0CA
         return obj
@@ -79,7 +79,7 @@ class MainCollectionCell: UICollectionViewCell, Reusable {
         
         temperatureLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(4.sizeH)
-            make.leading.trailing.equalToSuperview().inset(5.sizeW)
+            make.leading.trailing.equalToSuperview().inset(2.sizeW)
         }
         
         imageView.snp.makeConstraints { make in
